@@ -102,16 +102,19 @@ const socials = [
 <style>
 	.hero {
 		width: 100%;
-		padding: 4rem 0 3rem;
+		padding: clamp(2.5rem, 6vw, 5.5rem) 0 clamp(2rem, 4vw, 4rem);
 	}
 
 	.hero-inner {
 		width: 100%;
-		padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+		max-width: 72rem;
+		margin-inline: auto;
+		padding-inline: max(clamp(1.25rem, 4vw, 3.5rem), env(safe-area-inset-left))
+			max(clamp(1.25rem, 4vw, 3.5rem), env(safe-area-inset-right));
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-columns: 1fr;
 		align-items: start;
-		column-gap: clamp(1.5rem, 4vw, 3.5rem);
+		gap: 1.75rem;
 	}
 
 	.hero-copy {
@@ -120,7 +123,7 @@ const socials = [
 	}
 
 	h1 {
-		font-size: clamp(2.1rem, 4.5vw, 3.5rem);
+		font-size: clamp(2.1rem, 5vw, 3.5rem);
 		font-weight: 650;
 		letter-spacing: -0.045em;
 		line-height: 1.06;
@@ -154,8 +157,8 @@ const socials = [
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.65rem;
-		height: 2.65rem;
+		width: 2.75rem;
+		height: 2.75rem;
 		border-radius: 999px;
 		border: 1px solid var(--color-border-strong);
 		color: var(--color-fg);
@@ -178,13 +181,12 @@ const socials = [
 
 	.hero-photo {
 		margin: 0;
-		width: clamp(180px, 28vw, 340px);
+		width: min(72vw, 280px);
 		border-radius: 1.15rem;
 		overflow: hidden;
 		background: #d8d2c8;
 		aspect-ratio: 4 / 5;
-		align-self: start;
-		flex-shrink: 0;
+		justify-self: start;
 	}
 
 	.hero-photo img {
@@ -196,12 +198,16 @@ const socials = [
 	}
 
 	@media (min-width: 768px) {
-		.hero {
-			padding: 5.5rem 0 4rem;
+		.hero-inner {
+			grid-template-columns: minmax(0, 1fr) auto;
+			column-gap: clamp(2rem, 5vw, 4.5rem);
+			align-items: start;
 		}
 
-		.hero-inner {
-			column-gap: clamp(2.5rem, 5vw, 4.5rem);
+		.hero-photo {
+			width: clamp(220px, 26vw, 340px);
+			justify-self: end;
+			align-self: start;
 		}
 	}
 </style>

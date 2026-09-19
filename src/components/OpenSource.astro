@@ -515,7 +515,12 @@ const organizations = [
 		}
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 700px) {
+		.os-title-row {
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
 		.os-live {
 			display: none;
 		}
@@ -524,8 +529,17 @@ const organizations = [
 			padding-left: 0;
 		}
 
+		.os-pr {
+			grid-template-columns: minmax(0, 1fr) 1rem;
+			padding-inline: 0.15rem;
+		}
+
 		.os-status {
 			display: none;
+		}
+
+		.os-pr-title {
+			white-space: normal;
 		}
 	}
 </style>

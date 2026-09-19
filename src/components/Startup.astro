@@ -61,9 +61,12 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 <style>
 	.shell {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		grid-template-rows: auto auto;
-		column-gap: 1.25rem;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'title'
+			'follow'
+			'copy'
+			'logo';
 		row-gap: 0.85rem;
 		align-items: start;
 		padding-bottom: 2rem;
@@ -71,8 +74,7 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 	}
 
 	h2 {
-		grid-column: 1;
-		grid-row: 1;
+		grid-area: title;
 		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
 		font-weight: 700;
 		letter-spacing: -0.02em;
@@ -83,21 +85,19 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 	}
 
 	.follow {
-		grid-column: 2;
-		grid-row: 1;
+		grid-area: follow;
 		font-size: 0.95rem;
 		font-weight: 650;
 		line-height: 1;
 		white-space: nowrap;
-		justify-self: center;
+		justify-self: start;
 		align-self: baseline;
-		width: clamp(180px, 20vw, 220px);
-		text-align: center;
+		width: auto;
+		text-align: left;
 	}
 
 	.copy {
-		grid-column: 1;
-		grid-row: 2;
+		grid-area: copy;
 		min-width: 0;
 		max-width: 46rem;
 		padding-top: 1.15rem;
@@ -115,7 +115,7 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 
 	h3 {
 		margin: 1.35rem 0 0;
-		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-size: clamp(1.2rem, 2.4vw, 1.75rem);
 		font-weight: 700;
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
@@ -157,14 +157,12 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 	}
 
 	.logo-wrap {
-		grid-column: 2;
-		grid-row: 2;
+		grid-area: logo;
 		display: block;
-		width: clamp(180px, 20vw, 220px);
+		width: min(52vw, 200px);
 		aspect-ratio: 1;
-		margin: 0;
-		margin-top: 1.15rem;
-		justify-self: center;
+		margin: 0.5rem 0 0;
+		justify-self: start;
 		align-self: start;
 		border-radius: 0;
 		overflow: visible;
@@ -184,5 +182,27 @@ const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
 		height: 100%;
 		object-fit: contain;
 		object-position: center;
+	}
+
+	@media (min-width: 768px) {
+		.shell {
+			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-areas:
+				'title follow'
+				'copy logo';
+			column-gap: clamp(1.25rem, 3vw, 2.5rem);
+		}
+
+		.follow {
+			justify-self: center;
+			width: clamp(180px, 20vw, 220px);
+			text-align: center;
+		}
+
+		.logo-wrap {
+			width: clamp(180px, 20vw, 220px);
+			margin-top: 1.15rem;
+			justify-self: center;
+		}
 	}
 </style>
