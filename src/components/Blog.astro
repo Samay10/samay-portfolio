@@ -7,11 +7,20 @@ import { blog } from '../data/site';
 		<div class="blog-shell">
 			<div class="blog-title-row">
 				<h2>Blog</h2>
-				<a class="link-accent" href={blog.href} target="_blank" rel="noreferrer">{blog.cta}</a>
+				<a class="link-accent" href={blog.href} target="_blank" rel="noreferrer">
+					{blog.cta}
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+						<path d="M7 17 17 7M7 7h10v10"></path>
+					</svg>
+				</a>
 			</div>
 
 			<div class="blog-copy">
-				<p>{blog.summary}</p>
+				<p>
+					<a class="blog-brand link-accent" href={blog.href} target="_blank" rel="noreferrer">{blog.name}</a>
+					{' '}
+					— {blog.summary}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -41,9 +50,20 @@ import { blog } from '../data/site';
 	}
 
 	.blog-title-row a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
 		font-size: 0.95rem;
 		font-weight: 650;
 		white-space: nowrap;
+	}
+
+	.blog-title-row a svg {
+		transition: transform 140ms ease;
+	}
+
+	.blog-title-row a:hover svg {
+		transform: translate(2px, -2px);
 	}
 
 	.blog-copy {
@@ -59,6 +79,10 @@ import { blog } from '../data/site';
 		line-height: 1.65;
 		letter-spacing: -0.015em;
 		color: var(--color-fg);
+	}
+
+	.blog-brand {
+		font-weight: 650;
 	}
 
 	@media (max-width: 640px) {
