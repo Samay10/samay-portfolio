@@ -1,0 +1,137 @@
+---
+import { experience } from '../data/site';
+---
+
+<section id="work" class="section-pad">
+	<div class="container-page">
+		<h2>Work</h2>
+		<ul class="list">
+			{
+				experience.map((job) => (
+					<li class="item">
+						<div class="row">
+							<div class="role-block">
+								<h3>{job.role}</h3>
+								<p class="company">{job.company}</p>
+							</div>
+							<p class="period">
+								<span class="when">{job.period}</span>
+								<span class="sep">·</span>
+								<span class="where">{job.location}</span>
+							</p>
+						</div>
+						<ul class="highlights text-secondary">
+							{job.highlights.map((line) => (
+								<li>{line}</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	h2 {
+		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--color-fg);
+		margin: 0 0 1.75rem;
+	}
+
+	.list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0;
+	}
+
+	.item {
+		padding: 2rem 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.item:last-child {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.row {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.55rem;
+		align-items: start;
+		width: 100%;
+	}
+
+	.role-block {
+		min-width: 0;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: 700;
+		letter-spacing: -0.025em;
+		color: var(--color-fg);
+	}
+
+	.company {
+		margin: 0.35rem 0 0;
+		font-size: 1rem;
+		font-weight: 650;
+		letter-spacing: -0.015em;
+		color: var(--color-fg);
+	}
+
+	.period {
+		margin: 0;
+		font-size: 0.95rem;
+		font-weight: 650;
+		line-height: 1.45;
+		letter-spacing: -0.01em;
+		color: var(--color-fg);
+	}
+
+	.sep {
+		margin-inline: 0.4rem;
+		font-weight: 500;
+		color: var(--color-fg-tertiary);
+	}
+
+	.highlights {
+		list-style: none;
+		margin: 1.35rem 0 0;
+		padding: 0;
+		display: grid;
+		gap: 1rem;
+		font-size: 0.975rem;
+		line-height: 1.6;
+		width: 100%;
+		max-width: 40.5rem;
+	}
+
+	.highlights li {
+		margin: 0;
+		padding: 0;
+		min-height: calc(1.6em * 2);
+		max-width: 40.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.row {
+			grid-template-columns: minmax(0, 1fr) auto;
+			column-gap: 2rem;
+			align-items: baseline;
+		}
+
+		.period {
+			text-align: right;
+			white-space: nowrap;
+			padding-top: 0.15rem;
+		}
+	}
+</style>

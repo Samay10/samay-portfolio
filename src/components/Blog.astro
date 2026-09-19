@@ -1,0 +1,63 @@
+---
+import { blog } from '../data/site';
+---
+
+<section id="blog" class="section-pad">
+	<div class="container-page">
+		<div class="blog-shell">
+			<div class="blog-title-row">
+				<h2>Blog</h2>
+				<a class="link-accent" href={blog.href} target="_blank" rel="noreferrer">{blog.cta}</a>
+			</div>
+
+			<div class="blog-copy">
+				<p>{blog.summary}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.blog-shell {
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.blog-title-row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 0 0 0.85rem;
+	}
+
+	h2 {
+		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--color-fg);
+		margin: 0;
+	}
+
+	.blog-title-row a {
+		font-size: 0.95rem;
+		font-weight: 650;
+		white-space: nowrap;
+	}
+
+	.blog-copy {
+		padding-top: 1.15rem;
+		border-top: 1px solid var(--color-border);
+		max-width: 46rem;
+	}
+
+	.blog-copy p {
+		margin: 0;
+		font-size: 1.0625rem;
+		font-weight: 450;
+		line-height: 1.65;
+		letter-spacing: -0.015em;
+		color: var(--color-fg);
+	}
+</style>

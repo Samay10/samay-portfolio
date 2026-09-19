@@ -1,0 +1,90 @@
+---
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer section-pad">
+	<div class="container-page">
+		<div class="cta">
+			<h2>Let’s work together</h2>
+			<p class="text-secondary">
+				Open to thoughtful collaborations and opportunities in software engineering and
+				agentic AI.
+			</p>
+			<a class="link-accent" href={`mailto:${site.email}`}>{site.email}</a>
+		</div>
+
+		<div class="bottom text-tertiary">
+			<p>© {year} {site.shortName}</p>
+			<div class="links">
+				<a href={`mailto:${site.email}`} aria-label="Email">Email</a>
+				<a href={site.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
+					>LinkedIn</a
+				>
+				<a href={site.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"
+					>GitHub</a
+				>
+				<a href={site.links.x} target="_blank" rel="noreferrer" aria-label="X">X</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.cta h2 {
+		margin: 0;
+		font-size: clamp(1.75rem, 4vw, 2.25rem);
+		font-weight: 650;
+		letter-spacing: -0.035em;
+	}
+
+	.cta p {
+		margin: 0.75rem 0 1.25rem;
+		max-width: none;
+		font-size: 1rem;
+		line-height: 1.55;
+	}
+
+	.cta a {
+		font-size: 1.0625rem;
+		font-weight: 500;
+	}
+
+	.bottom {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin-top: 3rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--color-border);
+		font-size: 0.8125rem;
+	}
+
+	.bottom p {
+		margin: 0;
+	}
+
+	.links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.links a:hover {
+		color: var(--color-fg);
+	}
+
+	@media (min-width: 640px) {
+		.bottom {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+</style>

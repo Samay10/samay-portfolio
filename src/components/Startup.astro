@@ -1,0 +1,188 @@
+---
+import { startup } from '../data/site';
+
+const logo = `${import.meta.env.BASE_URL}prodigy-logo.png`;
+---
+
+<section id="startup" class="section-pad">
+	<div class="container-page">
+		<div class="shell">
+			<h2>Startup</h2>
+			{
+				startup.href && (
+					<a class="follow link-accent" href={startup.href} target="_blank" rel="noreferrer">
+						Follow along
+					</a>
+				)
+			}
+
+			<div class="copy">
+				<p class="belief">{startup.belief}</p>
+				<h3>Introducing mine: Prodigy</h3>
+				<p class="description text-secondary">{startup.description}</p>
+				<ul class="highlights text-secondary">
+					{
+						startup.highlights.map((item) =>
+							'email' in item ? (
+								<li>
+									{item.before}
+									<a class="link-accent" href={`mailto:${item.email}`}>
+										{item.email}
+									</a>
+									{item.after}
+								</li>
+							) : (
+								<li>{item.text}</li>
+							),
+						)
+					}
+				</ul>
+			</div>
+
+			<a
+				class="logo-wrap"
+				href={startup.href}
+				target="_blank"
+				rel="noreferrer"
+				aria-label="Prodigy website"
+			>
+				<img
+					src={logo}
+					alt="Prodigy logo"
+					width="640"
+					height="640"
+					loading="lazy"
+				/>
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.shell {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-rows: auto auto;
+		column-gap: 1.25rem;
+		row-gap: 0.85rem;
+		align-items: start;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	h2 {
+		grid-column: 1;
+		grid-row: 1;
+		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--color-fg);
+		margin: 0;
+		align-self: baseline;
+	}
+
+	.follow {
+		grid-column: 2;
+		grid-row: 1;
+		font-size: 0.95rem;
+		font-weight: 650;
+		line-height: 1;
+		white-space: nowrap;
+		justify-self: center;
+		align-self: baseline;
+		width: clamp(180px, 20vw, 220px);
+		text-align: center;
+	}
+
+	.copy {
+		grid-column: 1;
+		grid-row: 2;
+		min-width: 0;
+		max-width: 46rem;
+		padding-top: 1.15rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.belief {
+		margin: 0;
+		font-size: 1.0625rem;
+		font-weight: 450;
+		line-height: 1.65;
+		letter-spacing: -0.015em;
+		color: var(--color-fg);
+	}
+
+	h3 {
+		margin: 1.35rem 0 0;
+		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--color-fg);
+	}
+
+	.description {
+		margin: 0.85rem 0 0;
+		font-size: 0.975rem;
+		line-height: 1.65;
+		letter-spacing: -0.01em;
+	}
+
+	.highlights {
+		list-style: none;
+		margin: 1.35rem 0 0;
+		padding: 0;
+		display: grid;
+		gap: 1rem;
+		font-size: 0.975rem;
+		line-height: 1.6;
+	}
+
+	.highlights li {
+		position: relative;
+		margin: 0;
+		padding: 0 0 0 1.15rem;
+	}
+
+	.highlights li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.55em;
+		width: 0.4rem;
+		height: 0.4rem;
+		border-radius: 999px;
+		background: var(--color-fg-secondary);
+	}
+
+	.logo-wrap {
+		grid-column: 2;
+		grid-row: 2;
+		display: block;
+		width: clamp(180px, 20vw, 220px);
+		aspect-ratio: 1;
+		margin: 0;
+		margin-top: 1.15rem;
+		justify-self: center;
+		align-self: start;
+		border-radius: 0;
+		overflow: visible;
+		line-height: 0;
+		background: transparent;
+		box-shadow: none;
+		transition: transform 160ms ease;
+	}
+
+	.logo-wrap:hover {
+		transform: scale(1.02);
+	}
+
+	.logo-wrap img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+</style>
