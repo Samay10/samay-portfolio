@@ -161,8 +161,7 @@ export const openSource = {
 export const blog = {
 	summary:
 		"Sharing notes on technical and non-technical concepts I'm learning along the way.",
-	// Point this at your GitHub Pages blog when it’s live
-	href: 'https://samayashar.github.io',
+	href: 'https://samay10.github.io/awesam/',
 	cta: 'Visit the blog',
 } as const;
 
