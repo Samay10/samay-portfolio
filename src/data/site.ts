@@ -159,11 +159,10 @@ export const openSource = {
 } as const;
 
 export const blog = {
-	summary:
-		"Sharing notes on technical and non-technical concepts I'm learning along the way.",
-	name: 'AweSam',
-	href: 'https://samay10.github.io/awesam/',
-	cta: 'Visit AweSam',
+	summary: 'Your daily dose of technical developments, AI research and programming.',
+	name: 'Prodigy',
+	href: 'https://www.prodigy.org.in',
+	cta: 'Visit Prodigy',
 } as const;
 
 export const skills = [

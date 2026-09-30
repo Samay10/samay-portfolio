@@ -2,6 +2,8 @@
 
 Simple personal portfolio built with [Astro](https://astro.build) and Tailwind CSS. Designed for GitHub Pages.
 
+This repo is **portfolio only**. The Prodigy blog lives in the sibling folder `../blog` (GitHub: `Samay10/awesam`).
+
 ## Local development
 
 ```sh
@@ -22,9 +24,11 @@ Edit `src/data/site.ts` to update name, experience, projects, skills, and links.
 
 ## GitHub Pages
 
-1. Push this repo to GitHub (`samayashar/samay-portfolio` or similar).
+1. Push this repo to GitHub (`Samay10/samay-portfolio`).
 2. In repo **Settings → Pages**, set Source to **GitHub Actions**.
 3. Push to `main` — the workflow builds and deploys automatically.
 
-If this is a **project** site, keep `base: '/samay-portfolio'` in `astro.config.mjs`.  
+Live: https://samay10.github.io/samay-portfolio/
+
+If this is a **project** site, keep `base: '/samay-portfolio/'` in `astro.config.mjs`.  
 If you use `username.github.io` as the repo name, set `base: '/'`.
