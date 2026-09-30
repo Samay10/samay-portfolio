@@ -1,0 +1,91 @@
+---
+import { research } from '../data/site';
+---
+
+<section id="research" class="section-pad">
+	<div class="container-page">
+		<div class="research-shell">
+			<div class="research-title-row">
+				<h2>Research</h2>
+				<a class="link-accent" href={research.href} target="_blank" rel="noreferrer">
+					{research.cta}
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+						<path d="M7 17 17 7M7 7h10v10"></path>
+					</svg>
+				</a>
+			</div>
+
+			<div class="research-copy">
+				<p>{research.lead} “<a class="research-title link-accent" href={research.href} target="_blank" rel="noreferrer">{research.title}</a>,” {research.summary}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.research-shell {
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.research-title-row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 0 0 0.85rem;
+	}
+
+	h2 {
+		font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--color-fg);
+		margin: 0;
+	}
+
+	.research-title-row a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 650;
+		white-space: nowrap;
+	}
+
+	.research-title-row a svg {
+		transition: transform 140ms ease;
+	}
+
+	.research-title-row a:hover svg {
+		transform: translate(2px, -2px);
+	}
+
+	.research-copy {
+		padding-top: 1.15rem;
+		border-top: 1px solid var(--color-border);
+		max-width: 46rem;
+	}
+
+	.research-copy p {
+		margin: 0;
+		font-size: 1.0625rem;
+		font-weight: 450;
+		line-height: 1.65;
+		letter-spacing: -0.015em;
+		color: var(--color-fg);
+	}
+
+	.research-title {
+		font-weight: 650;
+	}
+
+	@media (max-width: 640px) {
+		.research-title-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.55rem;
+		}
+	}
+</style>

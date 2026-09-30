@@ -21,6 +21,7 @@ export const site = {
 	nav: [
 		{ label: 'Work', href: '#work' },
 		{ label: 'Startup', href: '#startup' },
+		{ label: 'Research', href: '#research' },
 		{ label: 'Open-Source', href: '#open-source' },
 		{ label: 'Skills', href: '#skills' },
 		{ label: 'Blog', href: '#blog' },
@@ -107,6 +108,15 @@ export const startup = {
 		},
 	],
 	href: 'https://www.prodigy.org.in',
+} as const;
+
+export const research = {
+	href: 'https://ijsra.net/content/next-generation-ai-solutions-transaction-security-digital-finance',
+	cta: 'Read paper',
+	lead: 'Published my thesis,',
+	title: 'Next-Generation AI Solutions for Transaction Security in Digital Finance',
+	summary:
+		'exploring LightGBM, attention mechanisms, and CatBoost for fraud detection. Focused on scalability, reliability, and accuracy, it delivers AI-driven solutions for real-time monitoring, enhancing digital finance security. Accessible in 60+ countries, this work reflects my dedication to advancing fintech through innovative machine learning techniques.',
 } as const;
 
 export const openSource = {
